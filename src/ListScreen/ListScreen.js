@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {View, Text, StyleSheet, FlatList, SafeAreaView} from 'react-native';
+import styles from './style';
 
 const ListScreen = () => {
   const studentList = [
@@ -16,21 +17,14 @@ const ListScreen = () => {
   ];
   const renderStudentList = ({item, index}) => {
     return (
-      <View
-        style={{
-          //   backgroundColor: 'yellow',
-          width: '33%',
-          marginVertical: 5,
-          borderColor: 'black',
-          borderWidth: 2,
-        }}>
+      <View style={styles.view}>
         <Text
-          style={{
-            fontSize: 20,
-            color: index % 2 === 0 ? 'red' : 'black',
-            //   marginVertical: 30,
-            marginHorizontal: 10,
-          }}>
+          style={[
+            styles.text,
+            {
+              color: index % 2 === 0 ? 'red' : 'black',
+            },
+          ]}>
           {item.id}* {item.name}
         </Text>
       </View>
@@ -56,6 +50,6 @@ const ListScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({});
+// const styles = StyleSheet.create({});
 
 export default ListScreen;
